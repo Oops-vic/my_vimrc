@@ -1,2 +1,2 @@
 # my_vimrc
-My Vimrc
+This file contains my updated vimrc.
