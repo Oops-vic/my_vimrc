@@ -11,38 +11,42 @@ noremap <C-l> <C-w>l
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
-noremap <LEADER><up> :res +5<CR>
-noremap <LEADER><down> :res -5<CR>
-noremap <LEADER><left> :vertical resize-5<CR>
-noremap <LEADER><right> :vertical resize+5<CR>
+noremap <silent><LEADER><up> :res +5<CR>
+noremap <silent><LEADER><down> :res -5<CR>
+noremap <silent><LEADER><left> :vertical resize-5<CR>
+noremap <silent><LEADER><right> :vertical resize+5<CR>
 
 " No Highlight
-noremap <LEADER><CR> :nohlsearch<CR>
+noremap <silent><LEADER><CR> :nohlsearch<CR>
 
 " Exit Insert Mode back to Normal Mode
 inoremap jj <ESC>
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " gruvbox
-colorscheme gruvbox
-set background=dark
+" colorscheme gruvbox
+" set background=dark
+
+" onehalf
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
 
 " nerdtree
 " autocmd VimEnter * NERDTree
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <LEADER>t :NERDTreeClose<CR>
+nnoremap <silent><LEADER>t :NERDTreeToggle<CR>
+nnoremap <silent><C-t> :NERDTreeClose<CR>
+nnoremap <silent><LEADER>fd :NERDTreeFind<CR>
+nnoremap <silent><LEADER>n :NERDTreeCWD<CR>
 
 " coc
 set hidden
